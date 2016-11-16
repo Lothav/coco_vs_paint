@@ -11,8 +11,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 var player, bull, platforms, cursors, space_bar, f, i, weapon, coco_weapon, player_body_turn = 'right';
 
 var bull_walk_away = 0;
-var bull_life = 5;
-
+var bull_life = 10;
 
 function hitBull(bull, bullet){
     bullet.kill();
