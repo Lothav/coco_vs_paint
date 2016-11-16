@@ -46,7 +46,6 @@ function create() {
     game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.scale.pageAlignVertically = true;
     game.scale.pageAlignHorizontally = true;
-    //game.scale.startFullScreen(false);
 
     cursors = game.input.keyboard.createCursorKeys();
     space_bar = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
