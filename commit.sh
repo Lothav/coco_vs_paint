@@ -1,7 +1,7 @@
 #!/bin/bash
 
 gulp &&
-git add * && git commit -m \'"$1"\' && git push origin master
+git commit -am \'"$1"\' && git push origin master
 #cp coco_vs_paint.js ../LuizOtav.io/coco_vs_paint &&
 #cp -r assets ../LuizOtav.io/coco_vs_paint &&
 #rm coco_vs_paint &&
