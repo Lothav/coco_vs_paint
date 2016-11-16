@@ -2,7 +2,7 @@ function update() {
 
     game.physics.arcade.collide( [bull, player], platforms );
     //game.physics.arcade.overlap(player, stars, collectStar, null, this);
-    game.physics.arcade.overlap( player, weapon.bullets, function(){
+    game.physics.arcade.overlap( player, bull_weapon.bullets, function(){
         bull_life = 10;
         game.state.restart();
     });
@@ -13,19 +13,29 @@ function update() {
     if( !bull_walk_away && bull_life > 0 ) {
         if( bull.x < player.x ) {
             bull.body.velocity.x = +100;
+            bull_body_turn = 'right';
             bull.animations.play('right');
-            weapon.fireFrom.centerOn( bull.x+50, bull.y+20 );
         } else {
             bull.body.velocity.x = -100;
+            bull_body_turn = 'left';
             bull.animations.play('left');
-            weapon.fireFrom.centerOn(bull.x + 10, bull.y + 20);
         }
         if( bull.y > player.y && bull.body.touching.down ) {
             bull.body.velocity.y = -350;
         }
-        weapon.fireAngle = (Math.atan2(player.y - weapon.y , player.x - weapon.x)) * (180/Math.PI);
-        weapon.fire();
+
     }
+
+    if(bull_body_turn == "right"){
+        bull_weapon.fireFrom.centerOn( bull.x+50, bull.y+20 );
+    } else {
+        bull_weapon.fireFrom.centerOn(bull.x + 10, bull.y + 20);
+    }
+    bull_weapon.fireRate = Math.round(Math.random()*1200)+500;
+    console.log(bull_weapon.fireRate);
+    bull_weapon.fireAngle = (Math.atan2(player.y - bull_weapon.y , player.x - bull_weapon.x)) * (180/Math.PI);
+    bull_weapon.fire();
+
     bull_walk_away = bull_walk_away == 80 ? 0 : bull_walk_away + 1;
 
 

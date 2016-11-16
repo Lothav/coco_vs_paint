@@ -8,7 +8,7 @@
 }());
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-var player, bull, platforms, cursors, space_bar, f, i, weapon, coco_weapon, player_body_turn = 'right';
+var player, bull, platforms, cursors, space_bar, f, i, bull_weapon, bull_body_turn, coco_weapon, player_body_turn = 'right';
 
 var bull_walk_away = 0;
 var bull_life = 10;

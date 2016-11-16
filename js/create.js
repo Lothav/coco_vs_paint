@@ -16,8 +16,9 @@ function create() {
         ledge.body.immovable = true;
     }
 
-    player = game.add.sprite(32, game.world.height - 140, 'dude');
+    player = game.add.sprite(game.world.width / 2, game.world.height - 140, 'dude');
     bull = game.add.sprite(game.world.width / 2 + 100, 120, 'bull');
+    game.camera.setPosition(player.x/2, player.y);
 
     game.physics.arcade.enable([player, bull]);
 
@@ -51,10 +52,11 @@ function create() {
     space_bar = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
     f = game.input.keyboard.addKey(Phaser.KeyCode.F);
 
-    weapon = this.add.weapon(10, 'bullet');
+    bull_weapon = this.add.weapon(10, 'bullet');
 
     coco_weapon = this.add.weapon(1000, 'coco_bullet');
     coco_weapon.fireRate = 200;
     coco_weapon.bulletSpeed = 500;
+
     game.input.onDown.add(gofull, this);
 }
