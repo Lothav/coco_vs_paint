@@ -34,7 +34,9 @@ function update() {
     bull_weapon.fireRate = Math.round(Math.random()*1200)+500;
     console.log(bull_weapon.fireRate);
     bull_weapon.fireAngle = (Math.atan2(player.y - bull_weapon.y , player.x - bull_weapon.x)) * (180/Math.PI);
-    bull_weapon.fire();
+    if(bull_alive) {
+        bull_weapon.fire();
+    }
 
     bull_walk_away = bull_walk_away == 80 ? 0 : bull_walk_away + 1;
 

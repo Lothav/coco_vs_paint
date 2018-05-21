@@ -58,5 +58,5 @@ function create() {
     coco_weapon.fireRate = 200;
     coco_weapon.bulletSpeed = 500;
 
-    game.input.onDown.add(gofull, this);
+    game.input.onDown.add(goFull, this);
 }
