@@ -34,16 +34,6 @@ function create() {
     bull.animations.add('left', [0, 1], 5, true);
     bull.animations.add('right', [2, 3], 5, true);
 
-    /* stars = game.add.group();
-     stars.enableBody = true;
-
-     for (i = 0; i < 12; i++) {
-     var star = stars.create(i * 70, 0, 'star');
-     star.body.gravity.y = 300;
-     star.body.bounce.y = 0.7 + Math.random() * 0.2;
-     }*/
-
-    //scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
     game.scale.pageAlignVertically = true;
     game.scale.pageAlignHorizontally = true;
@@ -59,4 +49,8 @@ function create() {
     coco_weapon.bulletSpeed = 500;
 
     game.input.onDown.add(goFull, this);
+
+    bull_life_text = game.add.text(game.camera.x + 100, game.camera.y + 50, 'Boss LP: ' + bull_life, { fontSize: '16px', fill: '#fff' });
+    bull_life_text.anchor.setTo(0.5, 0.5);
+
 }

@@ -13,6 +13,7 @@ var player, bull, platforms, cursors, space_bar, f, i, bull_weapon, bull_body_tu
 var bull_walk_away = 0;
 var bull_life = 10;
 var bull_alive = true;
+var bull_life_text;
 
 function hitBull(bull, bullet) {
 
@@ -28,7 +29,6 @@ function hitBull(bull, bullet) {
 }
 
 function goFull() {
-
     if (game.scale.isFullScreen) {
         game.scale.stopFullScreen();
     }else{

@@ -26,19 +26,18 @@ function update() {
 
     }
 
-    if(bull_body_turn == "right"){
+    if(bull_body_turn === "right"){
         bull_weapon.fireFrom.centerOn( bull.x+50, bull.y+20 );
     } else {
         bull_weapon.fireFrom.centerOn(bull.x + 10, bull.y + 20);
     }
     bull_weapon.fireRate = Math.round(Math.random()*1200)+500;
-    console.log(bull_weapon.fireRate);
     bull_weapon.fireAngle = (Math.atan2(player.y - bull_weapon.y , player.x - bull_weapon.x)) * (180/Math.PI);
     if(bull_alive) {
         bull_weapon.fire();
     }
 
-    bull_walk_away = bull_walk_away == 80 ? 0 : bull_walk_away + 1;
+    bull_walk_away = bull_walk_away === 80 ? 0 : bull_walk_away + 1;
 
 
     /*  Player update  */
@@ -86,4 +85,9 @@ function update() {
         /* player Jump */
         player.body.velocity.y = -350;
     }
+
+    bull_life_text.x = game.camera.x + 100;
+    bull_life_text.y = game.camera.y + 50;
+    bull_life_text.setText('Boss LP: ' + bull_life);
+
 }
